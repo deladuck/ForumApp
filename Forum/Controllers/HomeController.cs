@@ -21,7 +21,6 @@ namespace Forum.Controllers {
          * Accepting as incoming paramethers the next info:
          * @id as a thread ID
          * Set ViewBag => threadId with the current id to handle it in view
-         * If matches - returing partial view with edited comment
          * */
         [HttpGet]
         public ActionResult Thread(int id) {

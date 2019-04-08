@@ -1,5 +1,4 @@
 ﻿@using Forum.Models;
-@using Microsoft.AspNet.Identity;
 @{
     //Layout = null;
     ViewBag.Title = "Форум - тестовое задание";
@@ -24,7 +23,8 @@
                         <p>@t.Subject</p>
                         <div class="col-md-2">
                             <p>
-                                Автор: @{
+                                Автор: 
+                                @{
                                     ApplicationUser appUser = new ApplicationUser();
                                     using (UserIdentityContext db = new UserIdentityContext()) {
                                         appUser = db.Users.Find(t.Author);
@@ -38,7 +38,7 @@
                             </p>
                         </div>
                         <div class="col-md-10">
-                            <p>@t.Description</p>
+                            <p>@t.QuickDescription...</p>
                         </div>
                     </div>
                 </a>

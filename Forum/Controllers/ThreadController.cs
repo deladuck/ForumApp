@@ -17,13 +17,17 @@ namespace Forum.Controllers
          * @Body as a comment body
          * @AuthorId as an autor id
          * @ThreadId as a thread id
+         * 
+         * If user is logged in - adds a new comment
          * */
         [HttpPost]
         public ActionResult AddComment(string Body, string AuthorId, int ThreadId) {
-            var context = new ForumContext();
-            int elementsCount = context.Comments.ToList().Count;
-            context.Comments.Add(new Comment(0, AuthorId, Body, ThreadId));
-            context.SaveChanges();
+            if (User.Identity.IsAuthenticated) {
+                var context = new ForumContext();
+                int elementsCount = context.Comments.ToList().Count;
+                context.Comments.Add(new Comment(0, AuthorId, Body, ThreadId));
+                context.SaveChanges();
+            }
             return Redirect(Request.UrlReferrer.ToString());
         }
 

@@ -28,7 +28,7 @@
                 <h4 style="text-align: center">Комментарии</h4>
                 <hr>
             </div>
-            if (comments != null) {
+            if (comments.Count() > 0) {
                 foreach (var c in comments) {
                     ViewBag.Comm = c;
                     @Html.Partial("_commentPartial")
