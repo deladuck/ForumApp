@@ -21,8 +21,8 @@
             var comments = context.Comments.Where(c => c.ThreadId == threadId);
             <div class="col-md-12">
                 <div class="row">
-                    <div><h2 class="thread-comment-header">@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Subject))</h2></div>
-                    <div class="thread-body"><span>@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Description))</span></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12"><h2 class="thread-comment-header">@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Subject))</h2></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12"><div class="thread-body"><span>@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Description))</span></div></div>
                 </div>
                 <hr>
                 <h4 style="text-align: center">Комментарии</h4>
@@ -34,7 +34,7 @@
                     @Html.Partial("_commentPartial")
                 }
             } else {
-                <p> Пока комментариев нет.</p>
+                <p class="col-md-12 col-sm-12 col-lg-12" style="text-align: center"> Пока комментариев нет.</p>
             }
             @section scripts{
                 <script>

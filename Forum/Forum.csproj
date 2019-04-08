@@ -176,7 +176,6 @@
     <Compile Include="Models\Thread.cs" />
     <Compile Include="Models\ForumContext.cs" />
     <Compile Include="Models\ThreadDbInitializer.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserIdentityContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,7 +13,7 @@ namespace Forum.Controllers
 
         /**
          * AddComment method handles adding comments by users in threads.
-         * Accepting as incoming paramethers the next info:
+         * Accepting as incoming parameters the next info:
          * @Body as a comment body
          * @AuthorId as an autor id
          * @ThreadId as a thread id
@@ -33,7 +33,7 @@ namespace Forum.Controllers
 
         /**
          * EditComment method handles edditing comments written by the user.
-         * Accepting as incoming paramethers the next info:
+         * Accepting as incoming parameters the next info:
          * @Id as a comment id
          * Matching comment' author ID and User' ID
          * If matches - returing partial view with comment' edit form
@@ -52,7 +52,7 @@ namespace Forum.Controllers
 
         /**
          * ApplyEdit method updates edited comment on DB.
-         * Accepting as incoming paramethers the next info:
+         * Accepting as incoming parameters the next info:
          * @Body as a comment body
          * @Id as a comment id
          * Matching comment' author ID and User' ID
@@ -87,7 +87,7 @@ namespace Forum.Controllers
 
         /**
          * SubmitNewThread method sumbits new thread on DB.
-         * Accepting as incoming paramethers the next info:
+         * Accepting as incoming parameters the next info:
          * @thread as a thread instance from CreateThread view
          * If user is authenticated - adds to BD context a new thread
          * returns Index page
