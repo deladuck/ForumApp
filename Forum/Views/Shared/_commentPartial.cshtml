@@ -1,0 +1,30 @@
+﻿@using Forum.Models
+@using Microsoft.AspNet.Identity
+
+<div class="col-md-12 col-sm-12 col-lg-12" id="comment_body_@ViewBag.Comm.Id">
+    <div class="row comment-block">
+        <div class="col-sm-2 col-md-2 col-lg-2 comment-block-author">
+            Автор:
+            @{ApplicationUser appUser = new ApplicationUser();
+                var c = ViewBag.Comm;
+                using (UserIdentityContext db = new UserIdentityContext()) {
+                    appUser = db.Users.Find(c.AuthorId);
+                }
+                if (appUser != null) {
+                    <span class="author">@appUser.UserName</span>
+                } else {
+                    <span class="author">Аноним</span>
+                }
+            }
+        </div>
+        <div class="col-md-10 col-sm-10 col-lg-10 comment-block-body">
+            <span id="comment_@c.Id">@c.Body</span>
+            @if (c.AuthorId == User.Identity.GetUserId()) {
+                <input id="edit_@c.Id" type="button" class="btn btn-default edit-comment-button" onclick="EditComment(@c.Id)" value="Редактировать" />
+            }
+        </div>
+
+    </div>
+    <hr>
+</div>
+

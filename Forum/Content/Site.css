@@ -1,0 +1,180 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #262d47;
+    color: white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+a .thread-item {
+    padding: 5px;
+    border-radius: 7.5px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+a {
+    color: #8f91a0;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+hr {
+    display: block;
+    margin: 0.5em 2em;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #262d47;
+}
+a .thread-item:hover {
+    box-shadow: 0 0 20px -3px #000;
+    -webkit-transform: scale(1.025);
+    -ms-transform: scale(1.025);
+    transform: scale(1.025);
+}
+a:hover{
+    text-decoration: none;
+}
+
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+    background-color: #1b2137;
+}
+
+.author {
+    color: #626393;
+}
+
+.navbar-inverse {
+    background-color: #262d47;
+    border-color: #262d47;
+    -moz-box-shadow: 0 5px 20px 7px #00000038;
+    -webkit-box-shadow: 0 5px 20px 7px #00000038;
+    box-shadow: 0 5px 20px 7px #00000038;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #8f91a0;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #8f91a0;
+}
+
+.btn-default {
+    font-weight: bold;
+    color: white;
+    background-color: #2299d1;
+    border-color: #2299d1;
+    transition: all 0.25s ease;
+}
+.btn-default:hover {
+    color: #2299d1;
+    background-color: white;
+    border-color: white;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+.form-control {
+    color: white !important;
+    border: 1px solid #fff;
+    border-radius: 2.5px;
+    background-color: #547981 !important;
+}
+
+.text-danger {
+    color: #ab2c2c;
+}
+
+.thread-comment-header {
+    text-align: center;
+    color: white;
+    background-color: #222943;
+    border-radius: 7.5px 7.5px 0px 0px;
+    padding: 7.5px;
+}
+
+.thread-body {
+    background-color: #262d47;
+    margin-top: -10px;
+    min-height: 100px;
+    padding: 15px;
+    border-radius: 0px 0px 7.5px 7.5px;
+}
+
+.comment-text {
+    background-color: #262d47 !important;
+    min-width: 500px;
+    min-height: 90px;
+    color: white;
+    border: none;
+    border-radius: 7.5px;
+    padding: 7.5px;
+    box-shadow: 1px 1px 20px 1px #00000038;
+}
+
+.comment-text::placeholder {
+    color: white;
+}
+
+.comment-block {
+    min-height: 100px;
+    background-color: #262d47;
+    border-radius: 7.5px;
+    padding: 7.5px;
+}
+.comment-block-author {
+    min-height: inherit;
+    border-right: 1px solid #769598;
+}
+
+.comment-block-body {
+    min-height: inherit;
+}
+
+.comment-block-top {
+    background-color: #628b94;
+    height: 15px;
+}
+
+.comment-form {
+    margin-bottom: 15px;
+}
+
+.edit-comment-button {
+    position: relative;
+    float: right;
+    top: 65px;
+    right: -12.5px;
+}

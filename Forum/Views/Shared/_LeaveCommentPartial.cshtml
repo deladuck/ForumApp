@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) {
+    using (Html.BeginForm("AddComment", "Thread", FormMethod.Post, new { id = "commentForm", @class = "comment-form"})) {
+        @Html.AntiForgeryToken()
+
+        <div align="center">
+            <div>
+                <input type="hidden" value="@User.Identity.GetUserId()" name="AuthorId" />
+                <input type="hidden" value="@ViewBag.ThreadId" name="ThreadId" />
+                <textarea name="Body" placeholder="Отправить комментарий..." class="comment-text"></textarea>
+            </div>
+            <input class="btn btn-default" type="submit" value="Отправить" />
+        </div>
+    }
+} else {
+    <div>
+        <p>Зарегистрируйтесь или войдите в аккаунт, чтобы оставить комментарий.</p>
+    </div>
+}

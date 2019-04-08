@@ -1,0 +1,60 @@
+﻿@using Forum.Models
+@using Microsoft.AspNet.Identity
+@model Forum.Models.Comment
+@{
+    ViewBag.Title = "Thread";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- <title>Форум - тестовое задание</title> -->
+</head>
+<body>
+    <div class="row justify-content-center align-items-center" style="border-radius: 0px 0px 7.5px 7.5px;">
+        @using (var context = new ForumContext()) {
+            int threadId = ViewBag.ThreadId;
+            var thread = context.Threads.Find(ViewBag.ThreadId);
+            var comments = context.Comments.Where(c => c.ThreadId == threadId);
+            <div class="col-md-12">
+                <div class="row">
+                    <div><h2 class="thread-comment-header">@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Subject))</h2></div>
+                    <div class="thread-body"><span>@Html.Raw(System.Web.HttpUtility.HtmlDecode(thread.Description))</span></div>
+                </div>
+                <hr>
+                <h4 style="text-align: center">Комментарии</h4>
+                <hr>
+            </div>
+            if (comments != null) {
+                foreach (var c in comments) {
+                    ViewBag.Comm = c;
+                    @Html.Partial("_commentPartial")
+                }
+            } else {
+                <p> Пока комментариев нет.</p>
+            }
+            @section scripts{
+                <script>
+                    function EditComment(CommentId) {
+                        var data = {
+                            Id: CommentId
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: "/Thread/EditComment/",
+                            data: data
+                        }).done(function (data) {
+                            $("#edit_" + CommentId).remove();
+                            $("#comment_" + CommentId).html(data);
+                        });
+                    }
+                </script>
+            }
+        }
+        @Html.Partial("_LeaveCommentPartial")
+    </div>
+</body>
+</html>

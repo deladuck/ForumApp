@@ -1,0 +1,7 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) {
+    <form>
+        <input type="button" value="Создать новую тему" onClick="location.href='/Thread/CreateThread'" class="btn btn-default" style="position: sticky; left: 75%; margin: 7.5px;"/>
+    </form>
+}
+

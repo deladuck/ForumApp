@@ -1,0 +1,23 @@
+﻿@using (Html.BeginForm()) {
+        <textarea class="comment-text" id="edit_comment_body_@ViewBag.editComment.Id">@ViewBag.editComment.Body</textarea>
+        <input id="comment_edit_button" type="button" value="Применить" onclick="sendEdit(@ViewBag.editComment.Id)" class="btn btn-default edit-comment-button" />
+
+        <script>
+            function sendEdit(commentId) {
+                var body = document.getElementById("edit_comment_body_" + commentId).value;
+                var data = {
+                    Body: body,
+                    Id: commentId
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Thread/ApplyEdit/",
+                    data: data
+                }).done(function (data) {
+                    $("#comment_body_" + commentId).empty();
+                    document.getElementById("comment_body_" + commentId).setAttribute("id", "replace");
+                    $("#replace").replaceWith(data);
+                });
+            }
+        </script>
+ }

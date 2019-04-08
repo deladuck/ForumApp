@@ -1,0 +1,51 @@
+﻿@using Forum.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    //Layout = null;
+    ViewBag.Title = "Форум - тестовое задание";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- <title>Форум - тестовое задание</title> -->
+</head>
+<body>
+    <div class="row" style="border-radius: 0px 0px 7.5px 7.5px;">
+        <h3 style="text-align: center;">Разделы форума</h3>
+        <hr>
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            @Html.Partial("_CreateThreadButtonPartial")
+            @foreach (var t in ViewBag.Thread) {
+                <a href="/Home/Thread/@t.Id">
+                    <div class="row thread-item">
+                        <p>@t.Subject</p>
+                        <div class="col-md-2">
+                            <p>
+                                Автор: @{
+                                    ApplicationUser appUser = new ApplicationUser();
+                                    using (UserIdentityContext db = new UserIdentityContext()) {
+                                        appUser = db.Users.Find(t.Author);
+                                    }
+                                    if (appUser != null) {
+                                        <span class="author">@appUser.UserName</span>
+                                    } else {
+                                        <span class="author">Аноним</span>
+                                    }
+                                }
+                            </p>
+                        </div>
+                        <div class="col-md-10">
+                            <p>@t.Description</p>
+                        </div>
+                    </div>
+                </a>
+                <hr>
+            }
+        </div>
+
+    </div>
+</body>
+</html>
