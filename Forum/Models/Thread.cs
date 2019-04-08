@@ -19,16 +19,31 @@ namespace Forum.Models {
         //Constructor of the Class
         public Thread(int id, string subject, string description, string author) {
             Id = id;
-            Subject = subject;
+            
+            if (subject.Length > 99) {
+                Subject = subject.Substring(0, 99);
+            } else {
+                Subject = subject;
+            }
+
             Description = description;
-            QuickDescription = description.Substring(0, 50); //the same as description but max charachters are 50
+
+            if (description.Length > 99) {
+                QuickDescription = description.Substring(0, 99);//the same as description but max charachters are 100
+            } else {
+                QuickDescription = description;
+            }
+            
             Author = author;
         }
 
         //getters and setters for incapsulated fields
         [Key]
         public int Id { get => id; set => id = value; }
+
+        [Required]
         public string Subject { get => subject; set => subject = value; }
+        [Required]
         public string Description { get => description; set => description = value; }
         public string QuickDescription { get => quickDescription; set => quickDescription = value; }
         public string Author { get => author; set => author = value; }

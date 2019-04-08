@@ -25,8 +25,11 @@ namespace Forum.Models {
         //getters and setters for  incapsulated fields
         [Key]
         public int Id { get => id; set => id = value; }
+        [Required]
         public string AuthorId { get => authorId; set => authorId = value; }
+        [Required]
         public string Body { get => body; set => body = value; }
+        [Required]
         public int ThreadId { get => threadId; set => threadId = value; }
     }
 }
