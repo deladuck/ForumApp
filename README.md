@@ -1,1 +1,1 @@
-A Forum app is a test task
+Forum app is the test task
